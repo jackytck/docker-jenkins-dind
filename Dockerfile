@@ -1,9 +1,10 @@
-FROM ubuntu:14.04
+FROM debian:stretch
 
-MAINTAINER Decheng Zhang <killercentury@gmail.com>
+MAINTAINER Stephane Cottin <stephane.cottin@vixns.com>
 
 # Let's start with some basic stuff.
 RUN apt-get update -qq && apt-get install -qqy \
+    python-setuptools \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -17,7 +18,7 @@ RUN easy_install syslog-stdout supervisor-stdout
 RUN curl -sSL https://get.docker.com/ | sh
 
 # Install Docker Compose
-ENV DOCKER_COMPOSE_VERSION 1.7.1
+ENV DOCKER_COMPOSE_VERSION 1.12.0
 
 RUN curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
