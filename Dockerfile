@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-MAINTAINER Stephane Cottin <stephane.cottin@vixns.com>
+MAINTAINER Jacky Tang <jackytck@gmail.com>
 
 # Let's start with some basic stuff.
 RUN apt-get update -qq && apt-get install -qqy \
